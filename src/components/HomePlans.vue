@@ -1,14 +1,14 @@
 <template>
   <v-container grid-list-lg>
     <v-layout row>
-      <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5">
+      <v-flex xs12 class=" display-1 font-weight-black my-5 text-xs-center">
         Available Meal Plans
       </v-flex>
     </v-layout>
 
     <v-layout row wrap>
 
-      <v-flex xs12 sm12 md4>
+      <v-col xs="12" sm="12" md="4">
         <v-card>
           <v-img src="http://source.unsplash.com/hjCA3ecCXAQ" height="500px">
             <v-container fill-height fluid>
@@ -20,7 +20,7 @@
             </v-container>
           </v-img>
 
-          <v-card-title primary-title>
+          <v-card-text primary-title>
             <div>
               <h3 class="headline mb-0">Keto</h3>
               <div>
@@ -30,11 +30,16 @@
                 temporibus beatae molestias officiis nulla!
               </div>
             </div>
-          </v-card-title>
+          </v-card-text>
+          <v-card-actions v-if="['Menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('keto')">
+              Selecione este plano
+            </v-btn>
+          </v-card-actions>
         </v-card>
-      </v-flex>
+      </v-col>
 
-      <v-flex xs12 sm12 md4>
+      <v-col xs="12" sm="12" md="4">
         <v-card>
           <v-img src="http://source.unsplash.com/6S27S6pZ6o0" height="500px">
             <v-container fill-height fluid>
@@ -45,7 +50,7 @@
               </v-layout>
             </v-container>
           </v-img>
-          <v-card-title primary-title>
+          <v-card-text primary-title>
             <div>
               <h3 class="headline mb-0">Paleo</h3>
               <div>
@@ -54,11 +59,16 @@
                 eget velit eu dui tristique lobortis sit amet vel tellus.
               </div>
             </div>
-          </v-card-title>
+          </v-card-text>
+          <v-card-actions v-if="['Menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('paleo')">
+              Selecione este plano
+            </v-btn>
+          </v-card-actions>
         </v-card>
-      </v-flex>
+      </v-col>
 
-      <v-flex xs12 sm12 md4>
+      <v-col xs="12" sm="12" md="4">
         <v-card>
           <v-img src="http://source.unsplash.com/1SPu0KT-Ejg" height="500px">
             <v-container fill-height fluid>
@@ -69,7 +79,7 @@
               </v-layout>
             </v-container>
           </v-img>
-          <v-card-title primary-title>
+          <v-card-text primary-title>
             <div>
               <h3 class="headline mb-0">Vegan</h3>
               <div>
@@ -78,17 +88,28 @@
                 eget velit eu dui tristique lobortis sit amet vel tellus.
               </div>
             </div>
-          </v-card-title>
+          </v-card-text>
+          <v-card-actions v-if="['Menu'].includes($route.name)">
+            <v-btn outlined block color="green" @click="showRecipes('vegan')">
+              Selecione este plano
+            </v-btn>
+          </v-card-actions>
         </v-card>
-      </v-flex>
+      </v-col>
 
     </v-layout>
   </v-container>
 </template>
 
 <script>
+
 export default {
   name: 'HomePlans',
+  methods: {
+    showRecipes(plan) {
+      this.$store.dispatch('getRecipes', plan);
+    },
+  },
 };
 </script>
 

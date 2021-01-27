@@ -1,17 +1,17 @@
 <template>
   <v-container fluid>
     <v-layout>
-      <h1>About Page</h1>
+      <h1>Sign in Page</h1>
     </v-layout>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: 'About',
+  name: 'Sign',
 };
 </script>
 
 <style scoped>
 
-</style>>
+</style>

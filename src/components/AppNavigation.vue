@@ -19,13 +19,16 @@
 
     <v-spacer class="hidden-md-and-up" />
 
-    <v-toolbar-title> {{appTitle}} </v-toolbar-title>
-    <v-btn class="hidden-sm-and-down" text>Menu</v-btn>
+    <router-link to="/">
+      <v-toolbar-title> {{appTitle}} </v-toolbar-title>
+    </router-link>
+
+    <v-btn class="hidden-sm-and-down" text to="/menu">Menu</v-btn>
 
     <v-spacer class="hidden-sm-and-down"/>
 
-    <v-btn class="hidden-sm-and-down" text> Sign In </v-btn>
-    <v-btn class="hidden-sm-and-down" color="brown lighteen-3"> Join </v-btn>
+    <v-btn class="hidden-sm-and-down" text to="/sign"> Sign In </v-btn>
+    <v-btn class="hidden-sm-and-down" color="brown lighteen-3" to="/join"> Join </v-btn>
   </v-app-bar>
 
   </span>
@@ -49,5 +52,8 @@ export default {
 </script>
 
 <style scoped>
-
+a {
+  color: #fff;
+  text-decoration: none;
+}
 </style>
